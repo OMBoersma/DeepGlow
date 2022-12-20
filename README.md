@@ -20,14 +20,13 @@ To generate light curves or spectra, create an instance of the `Emulator` class 
 from DeepGlow import Emulator
 
 model = Emulator(simtype='ism')
-
 ```
 
 The `flux` function of the `Emulator` class returns the flux values in mJy. It takes the three arguments `params`, `times` and `nu` corresponding to an array of the GRB afterglow parameters, observing times in seconds and observing frequencies in Hz. The afterglow parameters must be specified as follows:
 
-- 0: Redshift.
-- 1: Luminosity distance (log10 of 10^28 cm).
-- 2: Isotropic-equivalent energy (log10 of 10^53 erg)
+- 0: Redshift $z$.
+- 1: Luminosity distance $\log10 d\_{L,28}$ (log10 of 10^28 cm).
+- 2: Isotropic-equivalent energy (log10 of 10^53 erg) $\log10 E\_\mathrm{K,iso,53}$
 - 3: Circumburst medium density (log10 of cm^-3)
 - 4: Jet half-opening angle (rad)
 - 5: Off-axis observer angle as a fraction of the jet half-opening angle
