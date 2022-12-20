@@ -33,9 +33,9 @@ The `flux` function of the `Emulator` class returns the flux values in mJy. It t
 - $\theta\_0$ : jet half-opening angle (rad).
 - $\theta\_\mathrm{obs} / \theta\_0$ : off-axis observer angle as a fraction of the jet half-opening angle.
 - $p$ : electron spectral index.
-- $\bar{\epsilon}\_e \equiv \frac{p-2}{p-1} \epsilon\_e$ : energy fraction in accelerated electrons (in log10), with factor of $(p - 2) / (p - 1)$ absorbed.
-- $\epsilon\_B$ : energy fraction in magnetic field (in log10).
-- $\xi\_N$ : fraction of electrons accelerated (in log10).
+- $\log\_{10} \bar{\epsilon}\_e \equiv \frac{p-2}{p-1} \epsilon\_e$ : energy fraction in accelerated electrons (in log10), with factor of $(p - 2) / (p - 1)$ absorbed.
+- $\log\_{10} \epsilon\_B$ : energy fraction in magnetic field (in log10).
+- $\log\_{10} \xi\_N$ : fraction of electrons accelerated (in log10).
 
 For example:
 
