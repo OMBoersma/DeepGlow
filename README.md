@@ -1,5 +1,5 @@
 # DeepGlow: Neural Network emulation of BOXFIT
-<img src="Logo_DeepGlow.png" width="200" height="200"/>
+<img src="Logo_DeepGlow.png" width="500" height="650"/>
 DeepGlow is a feed-forward neural network trained to emulate BOXFIT simulation data of gamma-ray burst (GRB) afterglows.
 
 This package provides an easy interface to generate GRB spectra and light curves mimicking those generated through BOXFIT with high accuracy. Details are provided in a forthcoming paper and this repository also contains the code used to generate the training data and to train the neural networks.
