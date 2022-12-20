@@ -2,9 +2,7 @@
 <p align="center">
 <img src="Logo_DeepGlow.png" width="250" height="325"/>
 </p>
-DeepGlow is a feed-forward neural network trained to emulate BOXFIT simulation data of gamma-ray burst (GRB) afterglows.
-
-This package provides an easy interface to generate GRB afterglow spectra and light curves mimicking those generated through BOXFIT with high accuracy. Details are provided in a forthcoming paper and this repository also contains the code used to generate the training data and to train the neural networks.
+DeepGlow is a feed-forward neural network trained to emulate BOXFIT simulation data of gamma-ray burst (GRB) afterglows. This package provides an easy interface to generate GRB afterglow spectra and light curves mimicking those generated through BOXFIT with high accuracy. Details are provided in a forthcoming paper and this repository also contains the code used to generate the training data and to train the neural networks.
 
 ## Installation
 
@@ -43,7 +41,7 @@ For example:
 import numpy as np
 
 observing_times=np.array([1e5,1e6,1e7])
-observing frequencies = np.array([1e9,1e12,1e15])
+observing_frequencies = np.array([1e9,1e12,1e15])
 GRB_params = np.array([0,-1,0,0,0.1,0.1,2.2,-2,-2,0])
 flux_values = model.flux(params=GRB_params,times=observing_times,nu=observing_frequencies)
 print(flux_values)
