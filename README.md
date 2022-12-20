@@ -8,7 +8,7 @@ This package provides an easy interface to generate GRB spectra and light curves
 
 Installation is straightforward via pip:
 
-'pip install deepglow'
+`pip install deepglow`
 
 DeepGlow specifically requires TensorFlow 2 and the importlib.resources package.
 
@@ -25,15 +25,15 @@ model = Emulator(simtype='ism')
 The `flux` function of the `Emulator` class returns the flux values in mJy. It takes the three arguments `params`, `times` and `nu` corresponding to an array of the GRB afterglow parameters, observing times in seconds and observing frequencies in Hz. The afterglow parameters must be specified as follows:
 
 - 0: Redshift $z$.
-- 1: Luminosity distance $\log10 d\_{L,28}$ (log10 of 10^28 cm).
-- 2: Isotropic-equivalent energy (log10 of 10^53 erg) $\log10 E\_\mathrm{K,iso,53}$
-- 3: Circumburst medium density (log10 of cm^-3)
-- 4: Jet half-opening angle (rad)
-- 5: Off-axis observer angle as a fraction of the jet half-opening angle
-- 6: Electron spectral index
-- 7: Energy fraction in accelerated electrons, with factor of `(p - 2) / (p - 1)` absorbed: `eps_e_bar = eps_e * (p - 2) / (p - 1)`
-- 8: Energy fraction in magnetic field
-- 9: Fraction of electrons accelerated.
+- 1: Luminosity distance (log10 of 10^28 cm) $\log10 \  d\_{L,28}$ (log10 of 10^28 cm).
+- 2: Isotropic-equivalent energy (log10 of 10^53 erg) $\log10 \ E\_\mathrm{K,iso,53}$
+- 3: Circumburst medium density (log10 of cm^-3) $\log10 \ n\_\mathrm{ref}$
+- 4: Jet half-opening angle (rad) $\theta\_0$
+- 5: Off-axis observer angle as a fraction of the jet half-opening angle $\theta\_\mathrm{obs} / \theta\_0$
+- 6: Electron spectral index $p$
+- 7: Energy fraction in accelerated electrons (in log10), with factor of $(p - 2) / (p - 1)$ absorbed: $\Bar{\epsilon}\_e \equiv \frac{p-2}{p-1} \epsilon\_e$
+- 8: Energy fraction in magnetic field $\epsilon\_B$ (in log10)
+- 9: Fraction of electrons accelerated $\xi\_N$ (in log10).
 
 ## Training data
 
