@@ -8,7 +8,7 @@ DeepGlow is a feed-forward neural network trained to emulate BOXFIT simulation d
 
 Installation is straightforward via pip:
 
-`pip install deepglow`
+`pip install DeepGlow`
 
 DeepGlow specifically requires `TensorFlow 2` and the `importlib.resources` package.
 
