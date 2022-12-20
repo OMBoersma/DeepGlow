@@ -25,9 +25,9 @@ model = Emulator(simtype='ism')
 The `flux` function of the `Emulator` class returns the flux values in mJy. It takes the three arguments `params`, `times` and `nu` corresponding to an array of the GRB afterglow parameters, observing times in seconds and observing frequencies in Hz. The afterglow parameters must be specified as follows:
 
 - 0: Redshift $z$.
-- 1: Luminosity distance (log10 of 10^28 cm) $\log10 \  d\_{L,28}$ (log10 of 10^28 cm).
-- 2: Isotropic-equivalent energy (log10 of 10^53 erg) $\log10 \ E\_\mathrm{K,iso,53}$
-- 3: Circumburst medium density (log10 of cm^-3) $\log10 \ n\_\mathrm{ref}$
+- 1: Luminosity distance (log10 of 10^28 cm) $\log\_{10} \  d\_{L,28}$.
+- 2: Isotropic-equivalent energy (log10 of 10^53 erg) $\log\_{10} \ E\_\mathrm{K,iso,53}$
+- 3: Circumburst medium density (log10 of cm^-3) $\log\_{10} \ n\_\mathrm{ref}$
 - 4: Jet half-opening angle (rad) $\theta\_0$
 - 5: Off-axis observer angle as a fraction of the jet half-opening angle $\theta\_\mathrm{obs} / \theta\_0$
 - 6: Electron spectral index $p$
