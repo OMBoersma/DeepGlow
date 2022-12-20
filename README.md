@@ -22,7 +22,7 @@ from DeepGlow import Emulator
 model = Emulator(simtype='ism')
 ```
 
-The `flux` function of the `Emulator` class returns the flux values in mJy. It takes the three arguments `params`, `times` and `nu` corresponding to an array of the GRB afterglow parameters, observing times in seconds and observing frequencies in Hz. The afterglow parameters must be specified as follows:
+The `flux` function of the `Emulator` class returns the flux values in mJy. It takes the three arguments `params`, `times` and `nu` corresponding to an array of the GRB afterglow parameters, observing times in seconds and observing frequencies in Hz. Each observing time value in the `times` array must correspond to an observing frequency value in the `nu` array. The afterglow parameters need to be specified in the following order in the `params` array:
 
 - $z$ : redshift.
 - $\log\_{10} d\_{L,28}$ : luminosity distance (log10 of 10^28 cm).
@@ -34,6 +34,19 @@ The `flux` function of the `Emulator` class returns the flux values in mJy. It t
 - $\bar{\epsilon}\_e \equiv \frac{p-2}{p-1} \epsilon\_e$ : energy fraction in accelerated electrons (in log10), with factor of $(p - 2) / (p - 1)$ absorbed.
 - $\epsilon\_B$ (in log10) : energy fraction in magnetic field (in log10).
 - $\xi\_N$ : fraction of electrons accelerated (in log10).
+
+For example:
+
+```
+import numpy as np
+
+observing_times=np.array([1e5,1e6,1e7])
+observing frequencies = np.array([1e9,1e12,1e15])
+GRB_params = np.array([0,-1,0,0,0.1,0.1,2.2,-2,-2,0])
+flux_values = model.flux(params=GRB_params,times=observing_times,nu=observing_frequencies)
+print(flux_values)
+# [5.75068180e-01, 8.58790301e-01, 5.39014321e-05]
+```
 
 ## Training data
 
