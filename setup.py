@@ -10,7 +10,7 @@ from setuptools import setup
 
 setup(
     name='DeepGlow',
-    version='1.0.1',
+    version='1.0.0',
     description='A neural network emulator for BOXFIT',
     long_description='DeepGlow is a Python package which emulates the BOXFIT gamma-ray burst afterglow simulation code using a neural network approach.\nIt can calculate light curves in milliseconds to within a few percent accuracy compared to the original BOXFIT model.\n',
     url='https://github.com/OMBoersma/DeepGlow',
