@@ -21,6 +21,7 @@ setup(
     install_requires=['tensorflow>=2.0.0',
                       'numpy',
                       'importlib.resources'],
+    extras_require={'test': ['pytest'] },
     include_package_data=True,
     package_dir={'DeepGlow': 'DeepGlow'},
     classifiers=[
