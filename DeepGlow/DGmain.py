@@ -34,22 +34,40 @@ class Emulator:
         """
         filename = f"scale_facs_{simtype}_final.csv"
         modelname = f"model-{simtype}-final.hdf5"
+        try:
+            # Try to use the newer `files` interface available in Python 3.9+
+            with importlib.resources.files("DeepGlow").joinpath("data") as data_path:
+                scale_path = data_path / filename
+                model_path = data_path / modelname
 
-        with importlib.resources.files("DeepGlow").joinpath("data") as data_path:
-            scale_path = data_path / filename
-            model_path = data_path / modelname
+                # Load scaling factors for standard scaling, 117 total datapoints
+                scale_facs = np.loadtxt(scale_path.absolute().as_posix())
+                self.Xmean = scale_facs[:-234][::2]
+                self.Xstd = scale_facs[:-234][1::2]
+                self.Ymean = scale_facs[-234:][::2]
+                self.Ystd = scale_facs[-234:][1::2]
 
-            # Load scaling factors for standard scaling, 117 total datapoints
-            scale_facs = np.loadtxt(scale_path.absolute().as_posix())
-            self.Xmean = scale_facs[:-234][::2]
-            self.Xstd = scale_facs[:-234][1::2]
-            self.Ymean = scale_facs[-234:][::2]
-            self.Ystd = scale_facs[-234:][1::2]
+                # Load the model
+                self.NNmodel = keras.models.load_model(
+                    model_path.absolute().as_posix(), compile=False
+                )
+        except AttributeError:
+            # Fallback to the older `path` interface for Python versions < 3.9
+            with importlib.resources.path("DeepGlow", "data") as data_path:
+                scale_path = data_path / filename
+                model_path = data_path / modelname
 
-            # Load the model
-            self.NNmodel = keras.models.load_model(
-                model_path.absolute().as_posix(), compile=False
-            )
+                # Load scaling factors for standard scaling, 117 total datapoints
+                scale_facs = np.loadtxt(scale_path.absolute().as_posix())
+                self.Xmean = scale_facs[:-234][::2]
+                self.Xstd = scale_facs[:-234][1::2]
+                self.Ymean = scale_facs[-234:][::2]
+                self.Ystd = scale_facs[-234:][1::2]
+
+                # Load the model
+                self.NNmodel = keras.models.load_model(
+                    model_path.absolute().as_posix(), compile=False
+                )
 
     def flux(self, params, t_obs, nu_obs):
         """
