@@ -13,7 +13,7 @@ Installation is straightforward via pip:
 
 `pip install DeepGlow`
 
-DeepGlow specifically requires `TensorFlow 2.x.x` and the `importlib.resources` package.
+DeepGlow specifically requires `numpy`, `TensorFlow 2.x.x`, and the `importlib.resources` package. For testing, 'pytest' is needed as well.
 
 ## Use
 
