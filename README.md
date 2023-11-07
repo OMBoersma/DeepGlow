@@ -3,7 +3,7 @@
 <img src="Logo_DeepGlow.png" width="250" height="325"/>
 </p>
 
-[![Python CI](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml/badge.svg)](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml) ![License](https://img.shields.io/github/license/OMBoersma/DeepGlow) ![PyPI](https://img.shields.io/pypi/v/DeepGlow)
+[![Python CI](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml/badge.svg)](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml) ![License](https://img.shields.io/github/license/OMBoersma/DeepGlow) ![Dependencies](https://requires.io/github/OMBoersma/DeepGlow/requirements.svg) ![PyPI](https://img.shields.io/pypi/v/DeepGlow)
 
 
 DeepGlow is a feed-forward neural network trained to emulate BOXFIT simulation data of gamma-ray burst (GRB) afterglows. This package provides an easy interface to generate GRB afterglow spectra and light curves mimicking those generated through BOXFIT with high accuracy. Details are provided in the published paper: [doi.org/10.1017/pasa.2023.32](https://doi.org/10.1017/pasa.2023.32). 
