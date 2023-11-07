@@ -35,7 +35,7 @@ class Emulator:
         filename = f"scale_facs_{simtype}_final.csv"
         modelname = f"model-{simtype}-final.hdf5"
 
-        with importlib.resources.path("DeepGlow", "data") as data_path:
+        with importlib.resources.files("DeepGlow").joinpath("data") as data_path:
             scale_path = data_path / filename
             model_path = data_path / modelname
 
