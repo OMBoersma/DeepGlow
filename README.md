@@ -3,7 +3,11 @@
 <img src="Logo_DeepGlow.png" width="250" height="325"/>
 </p>
 
-DeepGlow is a feed-forward neural network trained to emulate BOXFIT simulation data of gamma-ray burst (GRB) afterglows. This package provides an easy interface to generate GRB afterglow spectra and light curves mimicking those generated through BOXFIT with high accuracy. Details are provided in a preprint paper: [arXiv:2212.10943](https://arxiv.org/abs/2212.10943). 
+[![Python CI](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml/badge.svg)](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml) ![License](https://img.shields.io/github/license/OMBoersma/DeepGlow) ![PyPI](https://img.shields.io/pypi/v/DeepGlow) ![GitHub issues](https://img.shields.io/github/issues/OMBoersma/DeepGlow) ![GitHub stars](https://img.shields.io/github/stars/OMBoersma/DeepGlow)
+
+
+
+DeepGlow is a feed-forward neural network trained to emulate BOXFIT simulation data of gamma-ray burst (GRB) afterglows. This package provides an easy interface to generate GRB afterglow spectra and light curves mimicking those generated through BOXFIT with high accuracy. Details are provided in the published paper: [doi.org/10.1017/pasa.2023.32](https://doi.org/10.1017/pasa.2023.32). 
 
 This repository also contains the code used to generate the training data and to train the neural networks.
 
@@ -13,7 +17,7 @@ Installation is straightforward via pip:
 
 `pip install DeepGlow`
 
-DeepGlow specifically requires `TensorFlow 2.x.x` and the `importlib.resources` package.
+DeepGlow specifically requires `numpy`, `TensorFlow 2.x.x`, and the `importlib.resources` package. For testing, `pytest` is needed as well.
 
 ## Use
 
@@ -57,7 +61,7 @@ The training data generated with BOXFIT is provided through a Zenodo data packag
 
 ## References
 
-- DeepGlow paper: https://arxiv.org/abs/2212.10943 
+- DeepGlow paper: https://doi.org/10.1017/pasa.2023.32
 - BOXFIT: van Eerten, H., Horst, A. v. d., & MacFadyen, A. 2012, The Astrophysical Journal, 749, 44
 
  
