@@ -21,10 +21,7 @@ setup(
     license="BSD 2-clause",
     packages=["DeepGlow"],
     install_requires=["tensorflow>=2.0.0", "numpy", "importlib.resources"],
-    extras_require={"test": ["pytest"], 'quality': [
-            'flake8',
-            'mypy',
-            'black']},
+    extras_require={"test": ["pytest"], "quality": ["flake8", "mypy", "black"]},
     include_package_data=True,
     package_dir={"DeepGlow": "DeepGlow"},
     classifiers=[
