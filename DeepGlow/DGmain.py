@@ -38,7 +38,7 @@ class Emulator:
         modelname = f"model-{simtype}-final.hdf5"
         if sys.version_info >= (3, 9):
             # Use the newer `files` interface available in Python 3.9+
-            with importlib.resources.files("DeepGlow").joinpath("data") as data_path: # type: ignore[attr-defined]
+            with importlib.resources.files("DeepGlow").joinpath("data") as data_path:  # type: ignore[attr-defined]
                 scale_path = data_path / filename
                 model_path = data_path / modelname
 
