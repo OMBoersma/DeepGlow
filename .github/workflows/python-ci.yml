@@ -22,10 +22,23 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Install code quality dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -e .[test]  # If you have a 'test' extra defined in setup.py
+        pip install -e .[quality] # 'quality' extra defined in setup.py
+    - name: Install test dependencies
+      run: |
+        pip install -e .[test]  # 'test' extra defined in setup.py
+    - name: Run quality checks
+      run: |
+        # Run formatting check
+        black --check .
+
+        # Run linting
+        flake8 .
+
+        # Run type checking on DeepGlow package
+        mypy DeepGlow/ 
     - name: Test with pytest
       run: |
         pytest
