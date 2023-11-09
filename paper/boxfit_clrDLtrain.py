@@ -110,7 +110,7 @@ def train_model(
         Ntrain: Number of training samples.
     """
     clr = CyclicLR(base_lr=base_lr, max_lr=max_lr, step_size=clr_step_size, mode=mode)
-    history = model.fit(
+    model.fit(
         features,
         labels,
         validation_split=0.0,

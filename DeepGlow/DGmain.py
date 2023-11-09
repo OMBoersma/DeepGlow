@@ -1,6 +1,8 @@
+from typing import List
 import numpy as np
 from tensorflow import keras
 import importlib.resources
+import sys
 
 
 class Emulator:
@@ -8,7 +10,7 @@ class Emulator:
     A class to emulate BOXFIT GRB afterglow physics using a pretrained neural network model.
     """
 
-    def __init__(self, simtype="ism"):
+    def __init__(self, simtype: str = "ism") -> None:
         """
         Initializes the Emulator with the specified simulation type ('ism' or 'wind').
 
@@ -25,7 +27,7 @@ class Emulator:
         self.tcomp = np.geomspace(0.1, 1000, self.nDP) * self.sdays
         self.ref_d_L = 50 * 3.08567758 * 1e24  # Reference luminosity distance
 
-    def load_resources(self, simtype):
+    def load_resources(self, simtype: str) -> None:
         """
         Loads the scaling factors and neural network model from resources.
 
@@ -34,8 +36,8 @@ class Emulator:
         """
         filename = f"scale_facs_{simtype}_final.csv"
         modelname = f"model-{simtype}-final.hdf5"
-        try:
-            # Try to use the newer `files` interface available in Python 3.9+
+        if sys.version_info >= (3, 9):
+            # Use the newer `files` interface available in Python 3.9+
             with importlib.resources.files("DeepGlow").joinpath("data") as data_path:
                 scale_path = data_path / filename
                 model_path = data_path / modelname
@@ -51,7 +53,7 @@ class Emulator:
                 self.NNmodel = keras.models.load_model(
                     model_path.absolute().as_posix(), compile=False
                 )
-        except AttributeError:
+        else:
             # Fallback to the older `path` interface for Python versions < 3.9
             with importlib.resources.path("DeepGlow", "data") as data_path:
                 scale_path = data_path / filename
@@ -69,7 +71,9 @@ class Emulator:
                     model_path.absolute().as_posix(), compile=False
                 )
 
-    def flux(self, params, t_obs, nu_obs):
+    def flux(
+        self, params: List[float], t_obs: np.ndarray, nu_obs: np.ndarray
+    ) -> np.ndarray:
         """
         Calculates the flux for given parameters, observation times, and frequencies.
 

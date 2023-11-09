@@ -7,7 +7,7 @@ from whichbox import which_boxes
 
 n = int(2500)
 Mpc_cm = 3.08567758 * 1e24
-redshift = 0  
+redshift = 0
 filenumber = sys.argv[1]
 nDP = 117
 dp = []
@@ -22,10 +22,10 @@ E = np.random.uniform(50, 56, n)
 theta_c = np.random.uniform(np.log10(0.01), np.log10(0.5*np.pi), n)
 theta_obs = np.zeros(n)
 for i, th in enumerate(theta_c):
-    if 2*(10**th) <0.5*np.pi:
-    	theta_obs[i] = np.random.uniform(0.01, 2*(10**th))
+    if 2*(10**th) < 0.5*np.pi:
+        theta_obs[i] = np.random.uniform(0.01, 2*(10**th))
     else:
-	theta_obs[i] = np.random.uniform(0.01, 0.5*np.pi)
+        theta_obs[i] = np.random.uniform(0.01, 0.5*np.pi)
 n0 = np.random.uniform(-5, 3, n)
 p = np.random.uniform(2, 3, n)
 ee = np.random.uniform(-10, 0, n)
@@ -49,14 +49,11 @@ for i in range(n):
         boxroot=boxroot, t0=tdata[0], t1=tdata[-1], nu=nu_i, d_L=50*Mpc_cm, z=redshift, theta_0=theta_c_i, E0=E_i, n0=n0_i, theta_obs=theta_obs_i, p=p_i, eB=eB_i, eE=ee_i, ksi_N=1, no_points=int(nDP), box0=boxes[0], box1=boxes[1])
     p = subprocess.run(cmd, shell=True, capture_output=True).stdout
     t1 = time.time()
-    try:
-        lines = p.splitlines()[-int(nDP+1):-1]
-        lc_data = [float(str(line).split(",")[-1][1:-1]) for line in lines]
-        data.loc[i, -nDP:] = np.log10(lc_data)
-        times.append(t1-t0)
-    except:
-        print(p,flush=True)
+    lines = p.splitlines()[-int(nDP+1):-1]
+    lc_data = [float(str(line).split(",")[-1][1:-1]) for line in lines]
+    data.loc[i, -nDP:] = np.log10(lc_data)
+    times.append(t1-t0)
     if not i % 100:
-        print(i,flush=True)
+        print(i, flush=True)
 np.savetxt(root+'/timing/time_'+filenumber+'.txt', times)
 data.to_csv(root+'/lcdata_'+filenumber+'.csv', index=False)
