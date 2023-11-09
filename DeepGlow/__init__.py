@@ -9,5 +9,5 @@ from .DGmain import Emulator
 __all__ = [
     "Emulator",
 ]
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __author__ = "Oliver Boersma"

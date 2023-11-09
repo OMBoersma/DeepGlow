@@ -3,7 +3,7 @@
 <img src="Logo_DeepGlow.png" width="250" height="325"/>
 </p>
 
-[![Python CI](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml/badge.svg)](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml) ![License](https://img.shields.io/github/license/OMBoersma/DeepGlow) ![PyPI](https://img.shields.io/pypi/v/DeepGlow) ![GitHub issues](https://img.shields.io/github/issues/OMBoersma/DeepGlow) ![GitHub stars](https://img.shields.io/github/stars/OMBoersma/DeepGlow)
+[![Python CI](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml/badge.svg)](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-ci.yml) [![Python CD](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-cd.yml/badge.svg)](https://github.com/OMBoersma/DeepGlow/actions/workflows/python-cd.yml) ![License](https://img.shields.io/github/license/OMBoersma/DeepGlow) ![PyPI](https://img.shields.io/pypi/v/DeepGlow) ![GitHub issues](https://img.shields.io/github/issues/OMBoersma/DeepGlow) ![GitHub stars](https://img.shields.io/github/stars/OMBoersma/DeepGlow)
 
 
 
